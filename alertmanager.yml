@@ -1,0 +1,50 @@
+global:
+
+route:
+  receiver: default
+  group_wait: 10s
+  group_interval: 1m
+  repeat_interval: 4h
+  
+  routes:
+  - receiver: email-prod
+    match:
+      group: 'prod_site'
+  - receiver: email-ms
+    match:
+      group: 'prod_ms_site'
+
+  
+receivers:
+- name: "default"
+  email_configs:
+  - to: 'GK00507489@techmahindra.com,alok.patra@crevise.com,paresh.patil@crevise.com,sm00507508@techmahindra.com'
+   # html: '{{ template "email" . }}'
+    from: 'nad-admin@techmahindra.com'
+    smarthost: 'smtp.gmail.com:587'
+    require_tls: true
+    auth_username: 'root.nad@gmail.com'
+    auth_identity: 'root.nad@gmail.com'
+    auth_password: 'root@nad'
+
+- name: "email-prod"
+  email_configs:
+  - to: 'GK00507489@techmahindra.com,alok.patra@crevise.com,pd00524390@techmahindra.com,paresh.patil@crevise.com,sm00507508@techmahindra.com'
+    from: 'nad-admin@techmahindra.com'
+    smarthost: 'smtp.gmail.com:587'
+    require_tls: true
+    auth_username: 'root.nad@gmail.com'
+    auth_identity: 'root.nad@gmail.com'
+    auth_password: 'root@nad'
+
+
+- name: "email-ms"
+  email_configs:
+  - to: 'GK00507489@techmahindra.com,alok.patra@crevise.com,pd00524390@techmahindra.com,paresh.patil@crevise.com,sm00507508@techmahindra.com,mayur.yambal@iauro.com,yogesh.dhande@iauro.com,PD00524390@techmahindra.com,kmadhuri@techmahindra.com,sacheenk@techmahindra.com'
+    from: 'nad-admin@techmahindra.com'
+    smarthost: 'smtp.gmail.com:587'
+    require_tls: true
+    auth_username: 'root.nad@gmail.com'
+    auth_identity: 'root.nad@gmail.com'
+    auth_password: 'root@nad'
+

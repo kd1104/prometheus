@@ -1,0 +1,14 @@
+modules:
+  http_200_module:
+    prober: http
+    timeout: 5s
+    http:
+      valid_status_codes: []          # Defaults to 2xx
+      method: GET
+      no_follow_redirects: false
+      fail_if_ssl: false
+      fail_if_not_ssl: false
+      tls_config:
+        insecure_skip_verify: false
+      #protocol: "tcp"                 # accepts "tcp/tcp4/tcp6", defaults to "tcp"
+      preferred_ip_protocol: "ip4"    # used for "tcp", defaults to "ip6"
